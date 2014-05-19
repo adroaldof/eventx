@@ -1,3 +1,6 @@
-from django.shortcuts import render
+# coding: utf-8
+from django.template.response import TemplateResponse
 
-# Create your views here.
+
+def home(request):
+    return TemplateResponse(request, 'index.html', {})
