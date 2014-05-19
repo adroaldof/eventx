@@ -1,0 +1,15 @@
+######
+## Ignore this files
+######
+
+*.db
+*.sqlite3
+*.pyc
+*~
+.*
+
+######
+## Accept this files
+######
+
+!.gitignore
