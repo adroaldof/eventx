@@ -1,0 +1,59 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<meta content="charset=utf-8" />
+<title>{% block title %}Eventx{% endblock %}</title>
+{% block style %}
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" />
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/styles.css" />
+{% block extrastylesheets %}{% endblock extrastylesheets %}
+{% endblock style %}
+<main>
+  <div class="wrapper">
+
+    <div class="content">
+
+      <header>
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="container-fluid">
+
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{% url 'home' %}">EventX</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">{% trans "Home" %}</a></li>
+              </ul>
+
+            </div>
+
+          </div>
+        </nav>
+      </header>
+
+      <div class="main-content">
+        {% block content %}
+          <h1>{% trans "Block to be replaced" %}</h1>
+          <p>{% trans "This message will be replaced and it should never be displayed to final users" %}</p>
+        {% endblock content %}
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="footer">
+        <span class="trademark">&reg 2014. EventX, some rights reserved.</span>
+      </div>
+    </footer>
+
+  </div>
+
+{% block scripts %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.js"></script>
+{% block extrascripts %}{% endblock extrascripts %}
+{% endblock scripts %}
+</main>

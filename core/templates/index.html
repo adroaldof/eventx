@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block content %}
+<div class="main">
+  <h1>{% trans "Welcome to EventX" %}</h1>
+  <p>{% trans "The most amazing event after Dev in Rio!" %}</p>
+  <p>{% trans "Registration opening next sunday" %}</p>
+  <p>{% trans "For info get in touch by " %}<a href="mailto:eventx@eventx.com.br">eventx@eventx.com.br</a></p>
+</div>
+{% endblock content %}
