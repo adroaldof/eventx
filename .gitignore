@@ -2,6 +2,15 @@
 ## Ignore this files
 ######
 
+bin
+build
+include
+lib
+local
+man
+share
+Scripts
+.Python
 *.db
 *.sqlite3
 *.pyc
