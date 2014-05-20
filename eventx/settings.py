@@ -7,6 +7,7 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+import dj_database_url
 
 # Use unipath do get
 from unipath import Path
@@ -64,10 +65,9 @@ WSGI_APPLICATION = 'eventx.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR.child('db.sqlite3'),
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///' + BASE_DIR.child('db.sqlite3'),
+    )
 }
 
 # Internationalization
