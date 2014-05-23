@@ -6,10 +6,18 @@ body {
   color: #636369;
 }
 
+p,
+h1,
+h2,
+h3 {
+  color: #FFF;
+}
+
 .wrapper {
   width: 100%;
-  min-height: 500px;
+  min-height: 800px;
   background-color: #FFF;
+  background-image: url('../img/bg.jpg');
 }
 
 .content {
