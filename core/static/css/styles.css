@@ -10,14 +10,14 @@ p,
 h1,
 h2,
 h3 {
-  color: #FFF;
+  color: #080809;
 }
 
 .wrapper {
   width: 100%;
   min-height: 800px;
   background-color: #FFF;
-  background-image: url('../img/bg.jpg');
+  /*background-image: url('../img/bg.jpg');*/
 }
 
 .content {
