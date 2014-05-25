@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Use python decouple
 from decouple import config
 # Use dj database
-from dj_database_url import db_url
+from dj_database_url import parse as db_url
 # Use unipath do get
 from unipath import Path
 BASE_DIR = Path(__file__).parent
