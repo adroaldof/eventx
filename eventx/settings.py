@@ -46,6 +46,7 @@ THYRD_PARTY_APPS = ()
 
 LOCAL_APPS = (
     'core',
+    'subscriptions',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THYRD_PARTY_APPS + LOCAL_APPS
