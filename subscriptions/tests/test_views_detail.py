@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.core.urlresolvers import reverse as r
 
 from subscriptions.models import Subscription
 
@@ -11,7 +12,7 @@ class DetailTest(TestCase):
             email='test@testing.com',
             phone='12-12345678'
         )
-        self.resp = self.client.get('/inscricao/%d/' % s.pk)
+        self.resp = self.client.get(r('subscriptions:detail', args=[s.pk]))
 
     def test_get(self):
         'GET /incricao/1/ should return status 200'
@@ -35,5 +36,6 @@ class DetailTest(TestCase):
 
 class DetailNotFound(TestCase):
     def test_not_found(self):
-        response = self.client.get('/inscricao/0/')
+        'Check not found page if does not exists subscriptions'
+        response = self.client.get(r('subscriptions:detail', args=[0]))
         self.assertEqual(404, response.status_code)
