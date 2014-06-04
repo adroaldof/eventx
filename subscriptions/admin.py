@@ -9,10 +9,11 @@ from .models import Subscription
 class SubscriptionAdmin(admin.ModelAdmin):
     fieldsets = (
         (_('User Info'), {'fields': ('name', 'cpf')}),
-        (_('Contact Info'), {'fields': ('email', 'phone')}),
+        (_('Contact Info'), {'fields': ('email', 'phone', 'paid')}),
     )
     list_display = (
-        'name', 'email', 'cpf', 'phone', 'created_at', 'subscribed_today'
+        'name', 'email', 'cpf', 'phone', 'created_at', 'subscribed_today',
+        'paid'
     )
     search_fields = ('name', 'email', 'phone', 'created_at')
     ordering = ('name', 'email')
