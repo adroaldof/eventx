@@ -42,7 +42,9 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 )
 
-THYRD_PARTY_APPS = ()
+THYRD_PARTY_APPS = (
+    'south',
+)
 
 LOCAL_APPS = (
     'core',
@@ -95,3 +97,8 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR.child('staticfiles')
 STATIC_URL = '/static/'
+
+# Use South to manage data base on tests?
+# True: Yes. (default)
+# False: No! Use SyncDB
+SOUTH_TESTS_MIGRATE = False
