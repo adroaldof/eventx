@@ -14,6 +14,7 @@
     <div class="col-md-offset-2 col-md-10">
       <form action="" method="post">
         {% csrf_token %}
+        {{ form.non_field_errors }}
         <div class="col-md-8">
           <div class="form-group">
             <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
@@ -62,6 +63,8 @@
     $('form').addClass('form-horizontal');
     $('label').addClass('col-md-2 control-label');
     $('input[type="text"], input[type="email"]').addClass('form-control input-md');
+    $('#id_phone_0').css({'width': '50px', 'float': 'left'});
+    $('#id_phone_1').css({'width': '280px', 'margin-left': '60px'});
   });
 }(window.jQuery, window, document));
 

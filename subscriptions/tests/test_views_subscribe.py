@@ -23,8 +23,8 @@ class SubscribeTest(TestCase):
     def test_html(self):
         'HTML must contain 3 text, 1 email, 1 hidden and 1 submit controls'
         self.assertContains(self.resp, '<form')
-        self.assertContains(self.resp, '<input', 6)
-        self.assertContains(self.resp, 'type="text"', 4)
+        self.assertContains(self.resp, '<input', 7)
+        self.assertContains(self.resp, 'type="text"', 5)
         self.assertContains(self.resp, 'type="email"')
         self.assertContains(self.resp, 'type="submit"')
 
@@ -83,3 +83,11 @@ class SubscribeInvalidPostTest(TestCase):
     def test_dont_save(self):
         'Do not save data'
         self.assertFalse(Subscription.objects.exists())
+
+
+class TemplateRegressionTest(TestCase):
+    def test_template_has_non_field_errors(self):
+        'Check if non_field_errors are shown in template'
+        invalid_data = dict(name='Test Testing Name', cpf='12345678901')
+        response = self.client.post(r('subscriptions:subscribe'), invalid_data)
+        self.assertContains(response, '<ul class="errorlist">')
