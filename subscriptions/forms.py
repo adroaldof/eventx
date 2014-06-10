@@ -58,8 +58,12 @@ class SubscriptionForm(forms.ModelForm):
         self.fields['cpf'].validators.append(CPFValidator)
 
     def clean_name(self):
+        prep = ['da', 'das', 'de', 'do', 'dos', 'e']
         name = self.cleaned_data['name']
-        words = map(lambda w: w.capitalize(), name.split())
+        words = map(
+            lambda w: w.capitalize() if (w.lower() not in prep) else w.lower(),
+            name.split()
+        )
         capitalized_name = ' '.join(words)
         return capitalized_name
 
