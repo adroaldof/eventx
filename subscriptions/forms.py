@@ -37,7 +37,7 @@ class PhoneField(forms.MultiValueField):
             return ''
 
         if data_list[0] in EMPTY_VALUES:
-            raise forms.ValidationError(_('Area code must be provided'))
+            raise forms.ValidationError(_('Invalid area code'))
 
         if data_list[1] in EMPTY_VALUES:
             raise forms.ValidationError(_('Invalid number'))
