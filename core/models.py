@@ -2,6 +2,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from .managers import KindContactManager
+
 
 class Speaker(models.Model):
     name = models.CharField(_('Name'), max_length=255)
@@ -22,6 +24,11 @@ class Contact(models.Model):
     speaker = models.ForeignKey('Speaker', verbose_name=_('Speaker'))
     kind = models.CharField(_('Kind'), max_length=1, choices=KINDS)
     value = models.CharField(_('Value'), max_length=255)
+
+    objects = models.Manager()
+    emails = KindContactManager('E')
+    faxes = KindContactManager('F')
+    phones = KindContactManager('P')
 
     def __unicode__(self):
         return self.value
