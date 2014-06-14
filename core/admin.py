@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext as _
 
-from .models import Speaker, Contact
+from .models import Speaker, Contact, Talk
 
 
 class ContactInline(admin.TabularInline):
@@ -20,3 +20,4 @@ class SpeakerAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name', )}
 
 admin.site.register(Speaker, SpeakerAdmin)
+admin.site.register(Talk)
