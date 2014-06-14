@@ -33,6 +33,6 @@ def talk_list(request):
 
 def talk(request, pk):
     talk = get_object_or_404(Talk, id=pk)
-    return TemplateResponse(request, 'core/talk.html', {
+    return TemplateResponse(request, 'core/talk_detail.html', {
         'talk': talk,
     })

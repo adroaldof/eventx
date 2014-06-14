@@ -26,11 +26,23 @@ class TalkViewTest(TestCase):
         self.assertEqual(200, self.resp.status_code)
 
     def test_template(self):
-        'Template shoud be core/talk.html'
-        self.assertTemplateUsed(self.resp, 'core/talk.html')
+        'Template shoud be core/talk_detail.html'
+        self.assertTemplateUsed(self.resp, 'core/talk_detail.html')
 
     def test_html(self):
         'HTML shoud list talk'
         self.assertContains(self.resp, 'Talk Title')
         self.assertContains(self.resp, 'Talk Description')
         self.assertContains(self.resp, '10:30')
+        self.assertContains(self.resp, 'Test Testing')
+        self.assertContains(self.resp, '/palestrante/test-testing')
+
+    def test_talk_in_context(self):
+        'Talk instance shoud be in context'
+        talk = self.resp.context['talk']
+        self.assertIsInstance(talk, Talk)
+
+    def test_no_found(self):
+        'Talk intance that does not exists shoud get 404 status code'
+        resp = self.client.get(r('core:talk', args=[0]))
+        self.assertEqual(404, resp.status_code)

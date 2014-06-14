@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="talk">
+  <h2>{{ talk.title }}</h2>
+  <h4>{% trans "Time" %}: {{ talk.start_time }}</h4>
+  <h4>{% if talk.speakers.count == 1 %}{% trans "Speakers" %}{% else %}{% trans "Speaker" %}{% endif %}</h4>
+  {% for speaker in talk.speakers.all %}
+    <p><a href="{{ speaker.get_absolute_url }}" title="{{ speaker.description | truncatewords:20 }}">{{ speaker.name }}</a></p>
+  {% endfor %}
+  <p>{{ talk.description }}</p>
+</div>
+{% endblock content %}
