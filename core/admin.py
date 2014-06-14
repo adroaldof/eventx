@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext as _
 
-from .models import Speaker, Contact, Talk
+from .models import Speaker, Contact, Talk, Course
 
 
 class ContactInline(admin.TabularInline):
@@ -24,5 +24,10 @@ class TalkAdmin(admin.ModelAdmin):
     list_display = ('title', 'start_time', )
 
 
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slots', 'start_time', )
+
+
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Talk, TalkAdmin)
+admin.site.register(Course, CourseAdmin)

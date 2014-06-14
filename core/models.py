@@ -56,3 +56,10 @@ class Talk(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('core:talk', (), {'pk': self.pk})
+
+
+class Course(Talk):
+    slots = models.IntegerField(_('Slots'))
+    notes = models.TextField(_('Notes'))
+
+    objects = PeriodManager()
