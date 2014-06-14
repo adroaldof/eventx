@@ -5,6 +5,7 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns(
     'core.views',
     url(r'^$', 'home', name='home'),
+    url(r'^palestrantes/$', 'speakers', name='speakers'),
     url(
         r'^palestrante/(?P<slug>[\w-]+)$',
         'speaker_detail',

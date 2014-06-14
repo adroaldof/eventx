@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="speakers">
+  <h3>{% trans "Speakers List" %}</h3>
+  {% for speaker in speakers %}
+    <p>
+      <a href="{{ speaker.get_absolute_url }}">{{ speaker.name }}</a> - <a href="{{ speaker.url }}" alt="{{ speaker.name }}">{{ speaker.url }}</a>
+    </p>
+  {% endfor %}
+</div>
+{% endblock content %}

@@ -9,6 +9,13 @@ def home(request):
     return TemplateResponse(request, 'index.html', {})
 
 
+def speakers(request):
+    speakers = Speaker.objects.all()
+    return TemplateResponse(request, 'core/speakers.html', {
+        'speakers': speakers,
+    })
+
+
 def speaker_detail(request, slug):
     speaker = get_object_or_404(Speaker, slug=slug)
     return TemplateResponse(request, 'core/speaker_detail.html', {
