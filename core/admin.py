@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext as _
 
-from .models import Speaker, Contact, Talk, Course
+from .models import Speaker, Contact, Talk, Course, Media
 
 
 class ContactInline(admin.TabularInline):
@@ -20,8 +20,14 @@ class SpeakerAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name', )}
 
 
+class MediaInline(admin.TabularInline):
+    model = Media
+    extra = 1
+
+
 class TalkAdmin(admin.ModelAdmin):
     list_display = ('title', 'start_time', )
+    inlines = [MediaInline, ]
 
 
 class CourseAdmin(admin.ModelAdmin):
