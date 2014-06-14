@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <h3>{% trans "Morning" %}</h3>
+  {% for talk in morning_talks %}
+    {% include "core/talk_list_snippet.html" %}
+  {% empty %}
+    <p>{% trans "There is no talking for this morning" %}
+  {% endfor %}
+
+  <h3>{% trans "Afternoon" %}</h3>
+  {% for talk in afternoon_talks %}
+    {% include "core/talk_list_snippet.html" %}
+  {% empty %}
+    <p>{% trans "There is no talking for this afternoon" %}
+  {% endfor %}
+{% endblock content %}
