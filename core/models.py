@@ -2,7 +2,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from .managers import KindContactManager
+from .managers import KindContactManager, PeriodManager
 
 
 class Speaker(models.Model):
@@ -32,3 +32,23 @@ class Contact(models.Model):
 
     def __unicode__(self):
         return self.value
+
+
+class Talk(models.Model):
+    title = models.CharField(_('Title'), max_length=255)
+    description = models.TextField(_('Description'))
+    start_time = models.TimeField(_('Time'), blank=True)
+    speakers = models.ManyToManyField('Speaker', verbose_name=_('Speakers'))
+
+    objects = PeriodManager()
+
+    class Meta:
+        verbose_name = _('Talk')
+        verbose_name_plural = _('Talks')
+
+    def __unicode__(self):
+        return self.title
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('core:talk', (), {'pk': self.pk})
