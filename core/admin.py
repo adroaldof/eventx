@@ -19,5 +19,10 @@ class SpeakerAdmin(admin.ModelAdmin):
     inlines = [ContactInline, ]
     prepopulated_fields = {'slug': ('name', )}
 
+
+class TalkAdmin(admin.ModelAdmin):
+    list_display = ('title', 'start_time', )
+
+
 admin.site.register(Speaker, SpeakerAdmin)
-admin.site.register(Talk)
+admin.site.register(Talk, TalkAdmin)
