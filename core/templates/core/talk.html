@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="talk">
+  <h2>{{ talk.title }}</h2>
+  <h4>{% trans "Time" %}: {{ talk.start_time }}</h4>
+  <p>{{ talk.description }}</p>
+</div>
+{% endblock content %}

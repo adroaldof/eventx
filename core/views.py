@@ -22,3 +22,10 @@ def talk_list(request):
         'afternoon_talks': Talk.objects.at_afternoon(),
     }
     return TemplateResponse(request, 'core/talk_list.html', args)
+
+
+def talk(request, pk):
+    talk = get_object_or_404(Talk, id=pk)
+    return TemplateResponse(request, 'core/talk.html', {
+        'talk': talk,
+    })
