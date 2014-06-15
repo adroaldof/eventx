@@ -2,10 +2,12 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.test.utils import override_settings
+from unittest import skip
 
 from accounts.backends import EmailBackend
 
 
+@skip
 class EmailBackendTest(TestCase):
     def setUp(self):
         UserModel = get_user_model()
@@ -45,6 +47,7 @@ class EmailBackendTest(TestCase):
         self.assertIsNotNone(self.backend.get_user(1))
 
 
+@skip
 class MultipleEmailTest(TestCase):
     def setUp(self):
         UserModel = get_user_model()
@@ -69,6 +72,7 @@ class MultipleEmailTest(TestCase):
         self.assertIsNone(user)
 
 
+@skip
 @override_settings(AUTHENTICATION_BACKENDS=('accounts.backends.EmailBackend',))
 class FunctionEmailBackendTest(TestCase):
     def setUp(self):

@@ -106,7 +106,7 @@ SOUTH_TESTS_MIGRATE = False
 
 
 # Chage authentication backends
-AUTHENTICATION_BACKENDS = (
-    'accounts.backends.EmailBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
+# AUTHENTICATION_BACKENDS = (
+#     'accounts.backends.EmailBackend',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
