@@ -105,6 +105,10 @@ STATIC_URL = '/static/'
 SOUTH_TESTS_MIGRATE = False
 
 
+# Change default user auth
+AUTH_USER_MODEL = 'accounts.User'
+
+
 # Chage authentication backends
 # AUTHENTICATION_BACKENDS = (
 #     'accounts.backends.EmailBackend',
