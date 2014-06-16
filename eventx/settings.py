@@ -106,7 +106,6 @@ LANGUAGES = (
     ('pt-br', _('Portuguese')),
 )
 
-print BASE_DIR.ancestor(1).child('locale') + '/'
 LOCALE_PATHS = (
     BASE_DIR.ancestor(1).child('locale') + '/',
 )
