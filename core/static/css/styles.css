@@ -32,6 +32,25 @@ header {
   padding-top: 10px;
 }
 
+select {
+  height: 30px;
+  padding: 5px;
+  background-color: #DBDCDD;
+  border: 1px solid #C4C7C8;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+}
+
+#language {
+  width: 160px;
+  margin: 10px 0 0 0;
+}
+
+#language select {
+  width: 180px;
+}
+
 /*** Footer ***/
 
 footer {

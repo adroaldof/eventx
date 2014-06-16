@@ -16,6 +16,8 @@ from dj_database_url import parse as db_url
 from unipath import Path
 BASE_DIR = Path(__file__).parent
 
+from django.utils.translation import ugettext as _
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -56,11 +58,23 @@ INSTALLED_APPS = DJANGO_APPS + THYRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
 )
 
 ROOT_URLCONF = 'eventx.urls'
@@ -86,6 +100,17 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
+# Languages available on this system.
+LANGUAGES = (
+    ('en', _('English')),
+    ('pt-br', _('Portuguese')),
+)
+
+print BASE_DIR.ancestor(1).child('locale') + '/'
+LOCALE_PATHS = (
+    BASE_DIR.ancestor(1).child('locale') + '/',
+)
+
 USE_I18N = True
 
 USE_L10N = True
@@ -102,7 +127,7 @@ STATIC_URL = '/static/'
 # Use South to manage data base on tests?
 # True: Yes. (default)
 # False: No! Use SyncDB
-SOUTH_TESTS_MIGRATE = False
+# SOUTH_TESTS_MIGRATE = False
 
 
 # Change default user auth

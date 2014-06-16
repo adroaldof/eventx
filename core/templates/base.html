@@ -32,6 +32,22 @@
 
               <ul class="nav navbar-nav pull-right">
                 <li><a href="{% url 'subscriptions:subscribe' %}">{% trans "Registration" %}</a></li>
+                <li>
+                  <div id="language">
+                    <form action="{% url 'set_language' %}" method="post">
+                      {% csrf_token %}
+                      <input name="next" type="hidden" value="{{ redirect_to }}" />
+                      <select name="language" id="language-select">
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                          {{ language.name_local }}
+                        </option>
+                        {% endfor %}
+                      </select>
+                    </form>
+                  </div>
+                </li>
               </ul>
 
             </div>
@@ -60,6 +76,13 @@
 {% block scripts %}
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-2.1.0.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.js"></script>
+<script type="text/javascript">
+  (function ($, window, document) {
+    $('#language-select').on('change', function() {
+      $(this).closest('form').trigger('submit');
+    });
+  }(window.jQuery, window, document));
+</script>
 {% block extrascripts %}{% endblock extrascripts %}
 {% endblock scripts %}
 </main>
