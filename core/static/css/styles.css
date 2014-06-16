@@ -42,12 +42,12 @@ select {
           border-radius: 2px;
 }
 
-#language {
+.language {
   width: 160px;
   margin: 10px 0 0 0;
 }
 
-#language select {
+.language select {
   width: 180px;
 }
 
@@ -67,6 +67,17 @@ footer {
 .footer {
   width: 960px;
   margin: 0 auto;
+}
+
+.footer-links {
+  float: right;
+  font-size: 10px;
+  margin-right: 5px;
+}
+
+.footer-links a {
+  color: #B1AF8D;
+  text-decoration: underline;
 }
 
 .trademark {

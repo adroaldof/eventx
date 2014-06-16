@@ -33,11 +33,11 @@
               <ul class="nav navbar-nav pull-right">
                 <li><a href="{% url 'subscriptions:subscribe' %}">{% trans "Registration" %}</a></li>
                 <li>
-                  <div id="language">
+                  <div class="language">
                     <form action="{% url 'set_language' %}" method="post">
                       {% csrf_token %}
                       <input name="next" type="hidden" value="{{ redirect_to }}" />
-                      <select name="language" id="language-select">
+                      <select name="language" class="language-select">
                         {% get_language_info_list for LANGUAGES as languages %}
                         {% for language in languages %}
                         <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
@@ -68,6 +68,7 @@
     <footer>
       <div class="footer">
         <span class="trademark">&reg 2014. EventX, some rights reserved.</span>
+        <span class="footer-links"><a href="{% url 'admin:index' %}">Admin Site</a> | </span>
       </div>
     </footer>
 
@@ -78,7 +79,7 @@
 <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.js"></script>
 <script type="text/javascript">
   (function ($, window, document) {
-    $('#language-select').on('change', function() {
+    $('.language-select').on('change', function() {
       $(this).closest('form').trigger('submit');
     });
   }(window.jQuery, window, document));
