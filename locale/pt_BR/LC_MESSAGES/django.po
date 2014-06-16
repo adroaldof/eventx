@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EventX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-15 23:01-0300\n"
-"PO-Revision-Date: 2014-06-15 21:54-0300\n"
+"POT-Creation-Date: 2014-06-16 00:04-0300\n"
+"PO-Revision-Date: 2014-06-16 00:04-0300\n"
 "Last-Translator: Adroaldo de Andrade <adroaldof@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt_BR\n"
@@ -130,6 +130,10 @@ msgid ""
 msgstr ""
 "Esta mensagem será substituída e não deve ser mostrada a usuários finais"
 
+#: core/templates/base.html:71
+msgid "Admin site"
+msgstr "Administração do site"
+
 #: core/templates/index.html:7
 msgid "Welcome to EventX"
 msgstr "Bem-vindo ao EventX"
@@ -140,7 +144,7 @@ msgstr "O evento mais surpreendente depois da Dev no Rio!"
 
 #: core/templates/index.html:9
 msgid "Registration opening next sunday"
-msgstr "Inscrições abre no próximo sábado"
+msgstr "Inscrições abre no próximo domingo"
 
 #: core/templates/index.html:10
 msgid "For info get in touch by "
@@ -166,11 +170,11 @@ msgstr "Tarde"
 msgid "There is no talking for this afternoon"
 msgstr "Não há palestras nesta tarde"
 
-#: eventx/settings.py:105
+#: eventx/settings.py:109
 msgid "English"
 msgstr "Inglês"
 
-#: eventx/settings.py:106
+#: eventx/settings.py:110
 msgid "Portuguese"
 msgstr "Português"
 
